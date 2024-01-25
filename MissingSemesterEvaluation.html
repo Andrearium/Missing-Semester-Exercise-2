@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad UI for Missing Semester Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 30vh;
+            margin: 0;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px; /* adds some space between headings and buttons */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            margin: 0 10px; /* distance between the buttons */
+        }
+        
+        #goodButton {
+            /* style of good evaluation button */
+        }
+
+        #badButton {
+            /* style of bad evaluation button */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>How did you like Missing Semester?</h1> 
+    <h2>Do you want to give a good or bad evaluation?</h2>
+    <div class="button-container">
+    <button id="badButton" onclick="randomizeButtonPosition()">bad evaluation</button>
+    <button id="goodButton">good evaluation</button>
+    </div>
+
+    <script>
+        function randomizeButtonPosition() {
+            var button = document.querySelector('#badButton');
+            var maxX = window.innerWidth - button.clientWidth;
+            var maxY = window.innerHeight - button.clientHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+            
+            alert("You simply can't give a bad review so easily!");
+        }
+    </script>
+</body>
+</html>
 
