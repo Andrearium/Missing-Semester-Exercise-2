@@ -10,9 +10,22 @@
             text-align: center;
             margin-top: 50px;
         }
+
+        h1 {
+            color: black;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        h2 {
+            color: black;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
         .btn-good, .btn-bad {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 20px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -39,7 +52,7 @@
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
-            border: 2px solid #007bff;
+            border: 2px solid black;
             border-radius: 5px;
             z-index: 9999;
         }
@@ -62,6 +75,9 @@
     <!-- Random button position calculation -->
     <script>
         const buttonGood = document.getElementById('buttonGood');
+        const buttonBad = document.getElementById('buttonBad');
+        const popUp = document.getElementById('meme');
+        var jumpingEnabled = true;
 
         // Function to generate random position
         function getRandomPosition() {
@@ -74,13 +90,24 @@
 
         // Function to update position when mouse enters button area
         function updatePosition() {
-            const newPosition = getRandomPosition();
-            buttonGood.style.left = `${newPosition.x}px`;
-            buttonGood.style.top = `${newPosition.y}px`;
+            if (jumpingEnabled) {
+                const newPosition = getRandomPosition();
+                buttonGood.style.left = `${newPosition.x}px`;
+                buttonGood.style.top = `${newPosition.y}px`;
+            }
         }
 
         // Event listener for mouseenter
         buttonGood.addEventListener('mouseenter', updatePosition);
+        
+        function handleBadEvaluation() {
+            jumpingEnabled = false;
+            buttonGood.style.display = 'block';
+            buttonBad.style.display = 'none';
+        }
+
+        buttonBad.addEventListener('click', handleBadEvaluation);
+        
     </script>
 
     <!-- Popup -->
@@ -95,7 +122,6 @@
             document.getElementById('popup').style.display = 'block';
         });
     </script>
-
 
 </body>
 </html>
