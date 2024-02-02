@@ -6,7 +6,7 @@
     <title>Bad UI for Missing Semester Evaluation</title>
     <style>
         body {
-            background-color: lightgoldenrodyellow;
+            background-color:cornsilk;
             text-align: center;
             margin-top: 50px;
         }
@@ -57,7 +57,7 @@
             z-index: 9999;
         }
 
-        /* Stil für das Bild im Popup */
+        /* image style in pop up */
         .popup img {
             max-width: 100%;
             height: auto;
@@ -87,10 +87,11 @@
 
         // Function to generate random position
         function getRandomPosition() {
+            const headerHeight = document.querySelector('h1').offsetHeight + document.querySelector('h2').offsetHeight + 70;
             const maxWidth = window.innerWidth - buttonGood.offsetWidth;
-            const maxHeight = window.innerHeight - buttonGood.offsetHeight;
+            const maxHeight = window.innerHeight - buttonGood.offsetHeight - headerHeight;
             const randomX = Math.floor(Math.random() * maxWidth);
-            const randomY = Math.floor(Math.random() * maxHeight);
+            const randomY = Math.floor(Math.random() * maxHeight) + headerHeight;
             return { x: randomX, y: randomY };
         }
 
@@ -108,14 +109,11 @@
 
         // Function to update position when mouse enters button area
         function updatePosition() {
-            var newPosition;
             if (jumpingEnabled) {
-                newPosition = getRandomPosition();
-            } else {
-                newPosition = getRandomPositionWithoutPopUpArea();
-            }
-            buttonGood.style.left = `${newPosition.x}px`;
-            buttonGood.style.top = `${newPosition.y}px`;
+                const newPosition = getRandomPosition();
+                buttonGood.style.left = `${newPosition.x}px`;
+                buttonGood.style.top = `${newPosition.y}px`;
+            } 
         }
 
         // Event listener for mouseenter
@@ -126,7 +124,9 @@
             popUp.style.display = 'block';
             buttonGood.style.display = 'block';
             buttonBad.style.display = 'none';
-            updatePosition();
+            const newPosition = getRandomPositionWithoutPopUpArea();
+            buttonGood.style.left = `${newPosition.x}px`;
+            buttonGood.style.top = `${newPosition.y}px`;
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
