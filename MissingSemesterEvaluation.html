@@ -72,11 +72,17 @@
     <button id="buttonGood" class="btn-good">good evaluation</button>
     <button id="buttonBad" class="btn-bad">bad evaluation</button>
 
+    <!-- Popup -->
+    <div class="popup" id="popUp">
+        <img src="meme.jpg" alt="PopupImage">
+    </div>
+
+
     <!-- Random button position calculation -->
     <script>
         const buttonGood = document.getElementById('buttonGood');
         const buttonBad = document.getElementById('buttonBad');
-        const popUp = document.getElementById('meme');
+        const popUp = document.getElementById('popUp');
         var jumpingEnabled = true;
 
         // Function to generate random position
@@ -88,13 +94,28 @@
             return { x: randomX, y: randomY };
         }
 
+        function getRandomPositionWithoutPopUpArea() {
+            const popUpLeft = popUp.width;
+            const popUpRight = popUpLeft + popUp.offsetWidth;
+            const popUpTop = popUp.height;
+            const popUpBottom = popUpTop + popUp.offsetHeight
+            var pos;
+            do {
+                pos = getRandomPosition();
+            } while (pos.x <= popUpLeft && pos.x >= popUpRight && pos.y <= popUpTop && pos.y >= popUpBottom)
+            return { x: pos.x, y: pos.y };
+        }
+
         // Function to update position when mouse enters button area
         function updatePosition() {
+            var newPosition;
             if (jumpingEnabled) {
-                const newPosition = getRandomPosition();
-                buttonGood.style.left = `${newPosition.x}px`;
-                buttonGood.style.top = `${newPosition.y}px`;
+                newPosition = getRandomPosition();
+            } else {
+                newPosition = getRandomPositionWithoutPopUpArea();
             }
+            buttonGood.style.left = `${newPosition.x}px`;
+            buttonGood.style.top = `${newPosition.y}px`;
         }
 
         // Event listener for mouseenter
@@ -102,26 +123,15 @@
         
         function handleBadEvaluation() {
             jumpingEnabled = false;
+            popUp.style.display = 'block';
             buttonGood.style.display = 'block';
             buttonBad.style.display = 'none';
+            updatePosition();
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
-        
-    </script>
+       
+        </script>
 
-    <!-- Popup -->
-    <div class="popup" id="popup">
-        <img src="meme.jpg" alt="PopupImage">
-    </div>
-
-    <!-- JavaScript -->
-    <script>
-        // JavaScript, um das Popup zu öffnen
-        document.getElementById('buttonBad').addEventListener('click', function() {
-            document.getElementById('popup').style.display = 'block';
-        });
-    </script>
-
-</body>
+    </body>
 </html>
