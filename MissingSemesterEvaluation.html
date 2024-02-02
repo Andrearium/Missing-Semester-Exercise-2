@@ -6,62 +6,96 @@
     <title>Bad UI for Missing Semester Evaluation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: lightgoldenrodyellow;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 30vh;
-            margin: 0;
+            margin-top: 50px;
+        }
+        .btn-good, .btn-bad {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 200px;
+            font-weight: bold;
+        }
+        .btn-good {
+            left: calc(50% - 150px); /* half of window width minus distance */
+            background-color: green;
+            color: white;
+        }
+        .btn-bad {
+            left: calc(50% + 50px); /* half of window width plus distance */
+            background-color: red;
+            color: white;
         }
 
-        h1, h2 {
-            margin-bottom: 10px; /* adds some space between headings and buttons */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            z-index: 9999;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
+        /* Stil für das Bild im Popup */
+        .popup img {
+            max-width: 100%;
+            height: auto;
         }
 
-        button {
-            margin: 0 10px; /* distance between the buttons */
-        }
-        
-        #goodButton {
-            /* style of good evaluation button */
-        }
-
-        #badButton {
-            /* style of bad evaluation button */
-        }
     </style>
 </head>
 
 <body>
     <h1>How did you like Missing Semester?</h1> 
     <h2>Do you want to give a good or bad evaluation?</h2>
-    <div class="button-container">
-    <button id="badButton" onclick="randomizeButtonPosition()">bad evaluation</button>
-    <button id="goodButton">good evaluation</button>
+    <button id="buttonGood" class="btn-good">good evaluation</button>
+    <button id="buttonBad" class="btn-bad">bad evaluation</button>
+
+    <!-- Random button position calculation -->
+    <script>
+        const buttonGood = document.getElementById('buttonGood');
+
+        // Function to generate random position
+        function getRandomPosition() {
+            const maxWidth = window.innerWidth - buttonGood.offsetWidth;
+            const maxHeight = window.innerHeight - buttonGood.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+            return { x: randomX, y: randomY };
+        }
+
+        // Function to update position when mouse enters button area
+        function updatePosition() {
+            const newPosition = getRandomPosition();
+            buttonGood.style.left = `${newPosition.x}px`;
+            buttonGood.style.top = `${newPosition.y}px`;
+        }
+
+        // Event listener for mouseenter
+        buttonGood.addEventListener('mouseenter', updatePosition);
+    </script>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <img src="meme.jpg" alt="PopupImage">
     </div>
 
+    <!-- JavaScript -->
     <script>
-        function randomizeButtonPosition() {
-            var button = document.querySelector('#badButton');
-            var maxX = window.innerWidth - button.clientWidth;
-            var maxY = window.innerHeight - button.clientHeight;
-
-            var randomX = Math.floor(Math.random() * maxX);
-            var randomY = Math.floor(Math.random() * maxY);
-
-            button.style.left = randomX + 'px';
-            button.style.top = randomY + 'px';
-            
-            alert("You simply can't give a bad review so easily!");
-        }
+        // JavaScript, um das Popup zu öffnen
+        document.getElementById('buttonBad').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'block';
+        });
     </script>
+
+
 </body>
 </html>
-
