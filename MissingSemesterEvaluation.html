@@ -6,9 +6,11 @@
     <title>Bad UI for Missing Semester Evaluation</title>
     <style>
         body {
-            background-color:cornsilk;
             text-align: center;
             margin-top: 50px;
+            background-image: url('background.png');
+            background-size: cover;
+            background-repeat: repeat;
         }
 
         h1 {
@@ -23,30 +25,42 @@
             font-size: 25px;
         }
 
+        .text-box {
+            background-color: rgba(255, 255, 255, 0.7); /* white with 70% transparancy */
+            padding: 20px;
+        }
+
         .btn-good, .btn-bad {
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 22px;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             position: absolute;
-            top: 200px;
+            top: 260px;
             font-weight: bold;
         }
         .btn-good {
-            left: calc(50% - 150px); /* half of window width minus distance */
+            position: absolute;
+            left: 50%; /* half of window */
+            transform: translateX(-110%);
             background-color: green;
             color: white;
+            border: 3px solid white;
         }
         .btn-bad {
-            left: calc(50% + 50px); /* half of window width plus distance */
+            position: absolute;
+            left: 50%; /* half of window */
+            transform: translateX(+10%);
             background-color: red;
-            color: white;
+            color: black;
+            border: 3px solid black;
         }
 
         .popup {
             display: none;
-            position: fixed;
+            position: absolute;
+            margin-top: 80px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -54,12 +68,13 @@
             padding: 20px;
             border: 2px solid black;
             border-radius: 5px;
-            z-index: 9999;
+            z-index: 9999; /* to be sure in the foreground */
         }
 
-        /* image style in pop up */
+        /* Image style in pop up */
         .popup img {
             max-width: 100%;
+            top: 320px;
             height: auto;
         }
 
@@ -67,10 +82,13 @@
 </head>
 
 <body>
-    <h1>How did you like Missing Semester?</h1> 
-    <h2>Do you want to give a good or bad evaluation?</h2>
-    <button id="buttonGood" class="btn-good">good evaluation</button>
-    <button id="buttonBad" class="btn-bad">bad evaluation</button>
+    <div class="text-box">
+        <h1>How did you like Missing Semester?</h1> 
+        <h2>Do you want to give a good or bad evaluation?</h2>
+    </div>
+
+        <button id="buttonGood" class="btn-good">good evaluation</button>
+        <button id="buttonBad" class="btn-bad">bad evaluation</button>
 
     <!-- Popup -->
     <div class="popup" id="popUp">
@@ -87,9 +105,10 @@
 
         // Function to generate random position
         function getRandomPosition() {
+            const padding = 5;
             const headerHeight = document.querySelector('h1').offsetHeight + document.querySelector('h2').offsetHeight + 70;
-            const maxWidth = window.innerWidth - buttonGood.offsetWidth;
-            const maxHeight = window.innerHeight - buttonGood.offsetHeight - headerHeight;
+            const maxWidth = window.innerWidth - buttonGood.offsetWidth - padding * 2;
+            const maxHeight = window.innerHeight - buttonGood.offsetHeight - headerHeight - padding * 2;
             const randomX = Math.floor(Math.random() * maxWidth);
             const randomY = Math.floor(Math.random() * maxHeight) + headerHeight;
             return { x: randomX, y: randomY };
@@ -124,9 +143,8 @@
             popUp.style.display = 'block';
             buttonGood.style.display = 'block';
             buttonBad.style.display = 'none';
-            const newPosition = getRandomPositionWithoutPopUpArea();
-            buttonGood.style.left = `${newPosition.x}px`;
-            buttonGood.style.top = `${newPosition.y}px`;
+            buttonGood.style.left = `56.5%`;
+            buttonGood.style.top = `260px`;
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
