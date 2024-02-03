@@ -8,7 +8,7 @@
         body {
             text-align: center;
             margin-top: 50px;
-            background-image: url('background.png');
+            background-image: url('background.jpeg');
             background-size: cover;
             background-repeat: repeat;
         }
@@ -17,12 +17,14 @@
             color: black;
             font-weight: bold;
             font-size: 40px;
+            margin-bottom: 1vw; /* distance in percent of window width */
         }
 
         h2 {
             color: black;
             font-weight: bold;
             font-size: 25px;
+            margin-bottom: 1vw;
         }
 
         .text-box {
@@ -36,15 +38,15 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            position: absolute;
-            top: 260px;
+            position: relative;
             font-weight: bold;
+            margin-top: 2vw;
         }
         .btn-good {
             position: absolute;
             left: 50%; /* half of window */
             transform: translateX(-110%);
-            background-color: green;
+            background-color: forestgreen;
             color: white;
             border: 3px solid white;
         }
@@ -52,7 +54,7 @@
             position: absolute;
             left: 50%; /* half of window */
             transform: translateX(+10%);
-            background-color: red;
+            background-color: crimson;
             color: black;
             border: 3px solid black;
         }
@@ -60,8 +62,8 @@
         .popup {
             display: none;
             position: absolute;
-            margin-top: 80px;
-            top: 50%;
+           /* margin-top: 80px;
+            top: 50%; */
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
@@ -69,6 +71,8 @@
             border: 2px solid black;
             border-radius: 5px;
             z-index: 9999; /* to be sure in the foreground */
+            margin-top: 6vw;
+            top: 50vh;
         }
 
         /* Image style in pop up */
@@ -114,18 +118,6 @@
             return { x: randomX, y: randomY };
         }
 
-        function getRandomPositionWithoutPopUpArea() {
-            const popUpLeft = popUp.width;
-            const popUpRight = popUpLeft + popUp.offsetWidth;
-            const popUpTop = popUp.height;
-            const popUpBottom = popUpTop + popUp.offsetHeight
-            var pos;
-            do {
-                pos = getRandomPosition();
-            } while (pos.x <= popUpLeft && pos.x >= popUpRight && pos.y <= popUpTop && pos.y >= popUpBottom)
-            return { x: pos.x, y: pos.y };
-        }
-
         // Function to update position when mouse enters button area
         function updatePosition() {
             if (jumpingEnabled) {
@@ -143,8 +135,10 @@
             popUp.style.display = 'block';
             buttonGood.style.display = 'block';
             buttonBad.style.display = 'none';
-            buttonGood.style.left = `56.5%`;
-            buttonGood.style.top = `260px`;
+            buttonGood.style.position = `fixed`;
+            buttonGood.style.margin = `1vw`;
+            buttonGood.style.left = `50%`;
+            buttonGood.style.transform = `translateX(-50%)`;
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
