@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://byeqdvmhaf7ww"]
+[gd_scene load_steps=8 format=3 uid="uid://byeqdvmhaf7ww"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_vjpsa"]
+[ext_resource type="PackedScene" uid="uid://8xnb4ek0kgbu" path="res://world2.tscn" id="2_unqno"]
 [ext_resource type="PackedScene" uid="uid://kuha1su654ws" path="res://player.tscn" id="2_w68e7"]
 [ext_resource type="Texture2D" uid="uid://dxwfbptn83ej7" path="res://monochrome_tilemap_transparent_packed.png" id="3_tpsu2"]
 [ext_resource type="PackedScene" uid="uid://dbaaeeobwugyq" path="res://text.tscn" id="4_eyoxn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hc0l7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ld5dt"]
 texture = ExtResource("3_tpsu2")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1200,27 +1201,38 @@ texture = ExtResource("3_tpsu2")
 19:19/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:19/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_tdoy1"]
+[sub_resource type="TileSet" id="TileSet_dtu0a"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_hc0l7")
+sources/0 = SubResource("TileSetAtlasSource_ld5dt")
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_vjpsa")
+next_level = ExtResource("2_unqno")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(0, 1, 334, 0, 334, 196, -15, 195, -15, 0)
+polygon = PackedVector2Array(0, 0, 320, 0, 320, 180, 0, 180)
 
 [node name="Player" parent="." instance=ExtResource("2_w68e7")]
 position = Vector2(32, 112)
+collision_mask = 3
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_tdoy1")
+tile_set = SubResource("TileSet_dtu0a")
 format = 2
-layer_0/tile_data = PackedInt32Array(589825, 262144, 3, 589826, 327680, 3, 589827, 393216, 3, 589830, 262144, 3, 589831, 327680, 3, 589832, 393216, 3, 589841, 393216, 3, 589839, 262144, 3, 589840, 327680, 3)
+layer_0/tile_data = PackedInt32Array(589825, 262144, 3, 589826, 327680, 3, 589827, 393216, 3, 589841, 393216, 3, 589839, 262144, 3, 589840, 327680, 3, 589830, 262144, 3, 589831, 327680, 3, 589832, 393216, 3)
 
 [node name="Control" parent="." instance=ExtResource("4_eyoxn")]
 offset_left = 225.0
 offset_top = 98.0
 offset_right = 225.16
 offset_bottom = 98.06
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 0, 180, 320, 180, 320, 0, 333, 188, -26, 188)
+
+[connection signal="fallen" from="Player" to="." method="_on_player_fallen"]

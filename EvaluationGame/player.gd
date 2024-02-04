@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal fallen
+
 const SPEED = 100.0
 const JUMP_VELOCITY = -200.0
 
@@ -24,4 +26,13 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	move_and_slide()
+
+
+func _on_area_2d_area_entered(area):
+	fallen.emit()
+
+
+func _on_spring_detector_area_entered(area):
+	velocity.y -= 500
 	move_and_slide()
