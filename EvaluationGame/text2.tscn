@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://l42tdahxnop7"]
+
+[ext_resource type="FontFile" uid="uid://bkwwy3p7ljtkf" path="res://AsepriteFont.ttf" id="1_d1rdh"]
+
+[sub_resource type="Theme" id="Theme_3t5s2"]
+default_font = ExtResource("1_d1rdh")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.237
+anchor_bottom = 0.183
+offset_right = 0.159996
+offset_bottom = 0.0599976
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3t5s2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 67.0
+offset_right = 206.0
+offset_bottom = 115.0
+text = "You were not able to give a bad review"
+horizontal_alignment = 1
+autowrap_mode = 3
