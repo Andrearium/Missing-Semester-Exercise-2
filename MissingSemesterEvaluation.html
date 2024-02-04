@@ -3,65 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bad UI for Missing Semester Evaluation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 30vh;
-            margin: 0;
-        }
-
-        h1, h2 {
-            margin-bottom: 10px; /* adds some space between headings and buttons */
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        button {
-            margin: 0 10px; /* distance between the buttons */
-        }
-        
-        #goodButton {
-            /* style of good evaluation button */
-        }
-
-        #badButton {
-            /* style of bad evaluation button */
-        }
-    </style>
+    <title>Missing Semester Evaluation</title>
+    <link rel="stylesheet" type="text/css" href="stylesEval.css">
 </head>
 
 <body>
-    <h1>How did you like Missing Semester?</h1> 
-    <h2>Do you want to give a good or bad evaluation?</h2>
-    <div class="button-container">
-    <button id="badButton" onclick="randomizeButtonPosition()">bad evaluation</button>
-    <button id="goodButton">good evaluation</button>
+    <div class="text-box">
+        <h1>How did you like Missing Semester?</h1> 
+        <h2>Do you want to give a good or bad evaluation?</h2>
+    </div>
+
+        <button id="buttonGood" class="btn-good">good evaluation</button>
+        <button id="buttonBad" class="btn-bad">bad evaluation</button>
+
+    <div class="container">
+        <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
+        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
+        <p id="textClickMeRight" class="right-text">&larr; Click me</p>
+    </div>
+
+    <div class="container2">
+        <p id="textLikedMissingSemester" class="liked-text">So you liked Missing Semester?</p>
+        <button id="buttonYes" class="btn-yes1">Yes!</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popUp">
+        <img src="meme.jpg" alt="PopupImage">
     </div>
 
     <script>
-        function randomizeButtonPosition() {
-            var button = document.querySelector('#badButton');
-            var maxX = window.innerWidth - button.clientWidth;
-            var maxY = window.innerHeight - button.clientHeight;
+        const buttonGood = document.getElementById('buttonGood');
+        const buttonBad = document.getElementById('buttonBad');
+        const popUp = document.getElementById('popUp');
+        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
+        const textClickMeLeft = document.getElementById('textClickMeLeft')
+        const textClickMeRight = document.getElementById('textClickMeRight')
+        const textLikedMissingSemester = document.getElementById('textLikedMissingSemester')
+        const buttonYes = document.getElementById('buttonYes')
+        var jumpingEnabled = true;
 
-            var randomX = Math.floor(Math.random() * maxX);
-            var randomY = Math.floor(Math.random() * maxY);
-
-            button.style.left = randomX + 'px';
-            button.style.top = randomY + 'px';
-            
-            alert("You simply can't give a bad review so easily!");
+        // Function to generate random position
+        function getRandomPosition() {
+            const padding = 5;
+            const headerHeight = document.querySelector('h1').offsetHeight + document.querySelector('h2').offsetHeight + 70;
+            const maxWidth = window.innerWidth - buttonGood.offsetWidth - padding * 2;
+            const maxHeight = window.innerHeight - buttonGood.offsetHeight - headerHeight - padding * 2;
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight) + headerHeight;
+            return { x: randomX, y: randomY };
         }
-    </script>
-</body>
-</html>
 
+        // Function to update position when mouse enters button area
+        function updatePosition() {
+            if (jumpingEnabled) {
+                const newPosition = getRandomPosition();
+                buttonGood.style.left = `${newPosition.x}px`;
+                buttonGood.style.top = `${newPosition.y}px`;
+            } 
+        }
+
+        // Event listener for mouseenter
+        buttonGood.addEventListener('mouseenter', updatePosition);
+        
+        function handleBadEvaluation() {
+            jumpingEnabled = false;
+            popUp.style.display = 'block';
+            buttonGood.style.display = 'none';
+            buttonBad.style.display = 'none';
+            buttonGoodWorking.style.display = 'block';
+            textClickMeLeft.style.display = 'block';
+            textClickMeRight.style.display = 'block';
+        }
+
+        function handleGoodEvaluation() {
+            popUp.style.display = 'none';
+            document.body.style.backgroundImage = "url('background2.jpeg')";
+            document.body.style.backgroundPositionY = '15%'; // offset to center frog
+            buttonGoodWorking.style.display = 'none';
+            textClickMeLeft.style.display = 'none';
+            textClickMeRight.style.display = 'none';
+            textLikedMissingSemester.style.display = 'block';
+            buttonYes.style.display = 'block';
+        }
+
+        function handleYes() {
+            window.location.href = 'startGame.html';
+        }
+
+        buttonBad.addEventListener('click', handleBadEvaluation);
+        buttonGoodWorking.addEventListener('click', handleGoodEvaluation);
+        buttonYes.addEventListener('click', handleYes);
+       
+        </script>
+
+    </body>
+</html>
