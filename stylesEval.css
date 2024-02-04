@@ -1,23 +1,27 @@
 body {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
     background-image: url('background.jpeg');
     background-position-y: 10%; /* offset to position the image slightly higher */    
     background-size: cover;
     background-repeat: repeat;
 }
 
+h1, h2, p, .btn-bad, .btn-good, .btn-good2, .btn-yes, .btn-yes1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h1 {
     color: black;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 45px;
     margin-bottom: 1vw; /* distance in percent of window width */
 }
 
 h2 {
     color: black;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 35px;
     margin-bottom: 1vw;
 }
 
@@ -28,7 +32,7 @@ h2 {
 
 .btn-good, .btn-bad {
     padding: 10px 20px;
-    font-size: 22px;
+    font-size: 25px;
     border-radius: 5px;
     position: relative;
     font-weight: bold;
