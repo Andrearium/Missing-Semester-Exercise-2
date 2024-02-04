@@ -3,86 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bad UI for Missing Semester Evaluation</title>
-    <style>
-        body {
-            text-align: center;
-            margin-top: 50px;
-            background-image: url('background.jpeg');
-            background-size: cover;
-            background-repeat: repeat;
-        }
-
-        h1 {
-            color: black;
-            font-weight: bold;
-            font-size: 40px;
-            margin-bottom: 1vw; /* distance in percent of window width */
-        }
-
-        h2 {
-            color: black;
-            font-weight: bold;
-            font-size: 25px;
-            margin-bottom: 1vw;
-        }
-
-        .text-box {
-            background-color: rgba(255, 255, 255, 0.7); /* white with 70% transparancy */
-            padding: 20px;
-        }
-
-        .btn-good, .btn-bad {
-            padding: 10px 20px;
-            font-size: 22px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            position: relative;
-            font-weight: bold;
-            margin-top: 2vw;
-        }
-        .btn-good {
-            position: absolute;
-            left: 50%; /* half of window */
-            transform: translateX(-110%);
-            background-color: forestgreen;
-            color: white;
-            border: 3px solid white;
-        }
-        .btn-bad {
-            position: absolute;
-            left: 50%; /* half of window */
-            transform: translateX(+10%);
-            background-color: crimson;
-            color: black;
-            border: 3px solid black;
-        }
-
-        .popup {
-            display: none;
-            position: absolute;
-           /* margin-top: 80px;
-            top: 50%; */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border: 2px solid black;
-            border-radius: 5px;
-            z-index: 9999; /* to be sure in the foreground */
-            margin-top: 6vw;
-            top: 50vh;
-        }
-
-        /* Image style in pop up */
-        .popup img {
-            max-width: 100%;
-            top: 320px;
-            height: auto;
-        }
-
-    </style>
+    <title>Missing Semester Evaluation</title>
+    <link rel="stylesheet" type="text/css" href="stylesEval.css">
 </head>
 
 <body>
@@ -92,6 +14,7 @@
     </div>
 
         <button id="buttonGood" class="btn-good">good evaluation</button>
+        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
         <button id="buttonBad" class="btn-bad">bad evaluation</button>
 
     <!-- Popup -->
@@ -103,6 +26,7 @@
     <!-- Random button position calculation -->
     <script>
         const buttonGood = document.getElementById('buttonGood');
+        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
         const buttonBad = document.getElementById('buttonBad');
         const popUp = document.getElementById('popUp');
         var jumpingEnabled = true;
@@ -133,15 +57,13 @@
         function handleBadEvaluation() {
             jumpingEnabled = false;
             popUp.style.display = 'block';
-            buttonGood.style.display = 'block';
+            buttonGood.style.display = 'none';
             buttonBad.style.display = 'none';
-            buttonGood.style.position = `fixed`;
-            buttonGood.style.margin = `1vw`;
-            buttonGood.style.left = `50%`;
-            buttonGood.style.transform = `translateX(-50%)`;
+            buttonGoodWorking.style.display = 'block';
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
+        buttonGoodWorking.addEventListener('click', handleGoodEvaluation);
        
         </script>
 

@@ -1,0 +1,90 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+    background-image: url('background.jpeg');
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 1vw; /* distance in percent of window width */
+}
+
+h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 1vw;
+}
+
+.text-box {
+    background-color: rgba(255, 255, 255, 0.7); /* white with 70% transparancy */
+    padding: 20px;
+}
+
+.btn-good, .btn-bad {
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 5px;
+    position: relative;
+    font-weight: bold;
+    margin-top: 2vw;
+}
+.btn-good {
+    position: absolute;
+    left: 50%; /* half of window */
+    transform: translateX(-110%);
+    background-color: forestgreen;
+    color: white;
+    border: 3px solid white;
+}
+.btn-bad {
+    position: absolute;
+    left: 50%; /* half of window */
+    transform: translateX(+10%);
+    background-color: crimson;
+    color: black;
+    border: 3px solid black;
+}
+
+.btn-good2 {
+    display: none;
+    position: absolute;
+    left: 50%; /* half of window */
+    transform: translateX(-50%);
+    background-color: forestgreen;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    position: relative;
+    font-weight: bold;
+    margin-top: 2vw;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+   /* margin-top: 80px;
+    top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    z-index: 9999; /* to be sure in the foreground */
+    margin-top: 6vw;
+    top: 50vh;
+}
+
+/* Image style in pop up */
+.popup img {
+    max-width: 100%;
+    top: 320px;
+    height: auto;
+}
