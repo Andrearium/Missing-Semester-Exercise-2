@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Semester Evaluation</title>
+    <link rel="stylesheet" type="text/css" href="stylesEvalBad.css">
+</head>
+
+<body>
+    <div class="text-box">
+        <h1 id="headline1">How did you like Missing Semester?</h1> 
+        <h2 id="headline2">Do you want to give a good or bad evaluation?</h2>
+    </div>
+
+    <button id="buttonGood" class="btn-good">good evaluation</button>
+    <button id="buttonBad" class="btn-bad">bad evaluation</button>
+
+    <div class="container">
+        <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
+        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
+        <p id="textClickMeRight" class="right-text">&larr; Click me</p>
+    </div>
+
+    <div class="container2">  
+        <button id="buttonYes" class="btn-yes1">Yes!</button>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popUp">
+        <img src="meme.jpg" alt="PopupImage">
+    </div>
+
+    <script>
+        const headline1 = document.getElementById('headline1');
+        const headline2 = document.getElementById('headline2');
+        const buttonGood = document.getElementById('buttonGood');
+        const buttonBad = document.getElementById('buttonBad');
+        const popUp = document.getElementById('popUp');
+        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
+        const textClickMeLeft = document.getElementById('textClickMeLeft')
+        const textClickMeRight = document.getElementById('textClickMeRight')
+        const buttonYes = document.getElementById('buttonYes')
+        var jumpingEnabled = true;
+
+        // Function to generate random position
+        function getRandomPosition() {
+            const padding = 5;
+            const headerHeight = document.querySelector('h1').offsetHeight + document.querySelector('h2').offsetHeight + 70;
+            const maxWidth = window.innerWidth - buttonGood.offsetWidth - padding * 2;
+            const maxHeight = window.innerHeight - buttonGood.offsetHeight - headerHeight - padding * 2;
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight) + headerHeight;
+            return { x: randomX, y: randomY };
+        }
+
+        // Function to update position when mouse enters button area
+        function updatePosition() {
+            if (jumpingEnabled) {
+                const newPosition = getRandomPosition();
+                buttonGood.style.left = `${newPosition.x}px`;
+                buttonGood.style.top = `${newPosition.y}px`;
+            } 
+        }
+
+        // Event listener for mouseenter
+        buttonGood.addEventListener('mouseenter', updatePosition);
+        
+        function handleBadEvaluation() {
+            jumpingEnabled = false;
+            popUp.style.display = 'block';
+            buttonGood.style.display = 'none';
+            buttonBad.style.display = 'none';
+            buttonGoodWorking.style.display = 'block';
+            textClickMeLeft.style.display = 'block';
+            textClickMeRight.style.display = 'block';
+        }
+
+        function handleGoodEvaluation() {
+            popUp.style.display = 'none';
+            document.body.style.backgroundImage = "url('background2.jpeg')";
+            document.body.style.backgroundPositionY = '15%'; // offset to center frog
+            buttonGoodWorking.style.display = 'none';
+            textClickMeLeft.style.display = 'none';
+            textClickMeRight.style.display = 'none';
+            buttonYes.style.display = 'block';
+            headline1.textContent = 'So you liked Missing Semester?';
+            headline2.remove();
+        }
+
+        function handleYes() {
+            window.location.href = 'GoodEval.html';
+        }
+
+        buttonBad.addEventListener('click', handleBadEvaluation);
+        buttonGoodWorking.addEventListener('click', handleGoodEvaluation);
+        buttonYes.addEventListener('click', handleYes);
+       
+        </script>
+
+    </body>
+</html>

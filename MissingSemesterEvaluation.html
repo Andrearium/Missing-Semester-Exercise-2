@@ -16,18 +16,6 @@
         <button id="buttonGood" class="btn-good">good evaluation</button>
         <button id="buttonBad" class="btn-bad">bad evaluation</button>
 
-    <div class="container">
-        <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
-        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
-        <p id="textClickMeRight" class="right-text">&larr; Click me</p>
-    </div>
-
-    <div class="container2">
-        <p id="textLikedMissingSemester" class="liked-text">So you liked Missing Semester?</p>
-        <button id="buttonYes" class="btn-yes1">Yes!</button>
-    </div>
-
-    <!-- Popup -->
     <div class="popup" id="popUp">
         <img src="meme.jpg" alt="PopupImage">
     </div>
@@ -35,12 +23,6 @@
     <script>
         const buttonGood = document.getElementById('buttonGood');
         const buttonBad = document.getElementById('buttonBad');
-        const popUp = document.getElementById('popUp');
-        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
-        const textClickMeLeft = document.getElementById('textClickMeLeft')
-        const textClickMeRight = document.getElementById('textClickMeRight')
-        const textLikedMissingSemester = document.getElementById('textLikedMissingSemester')
-        const buttonYes = document.getElementById('buttonYes')
         var jumpingEnabled = true;
 
         // Function to generate random position
@@ -71,29 +53,12 @@
             popUp.style.display = 'block';
             buttonGood.style.display = 'none';
             buttonBad.style.display = 'none';
-            buttonGoodWorking.style.display = 'block';
-            textClickMeLeft.style.display = 'block';
-            textClickMeRight.style.display = 'block';
-        }
-
-        function handleGoodEvaluation() {
-            popUp.style.display = 'none';
-            document.body.style.backgroundImage = "url('background2.jpeg')";
-            document.body.style.backgroundPositionY = '15%'; // offset to center frog
-            buttonGoodWorking.style.display = 'none';
-            textClickMeLeft.style.display = 'none';
-            textClickMeRight.style.display = 'none';
-            textLikedMissingSemester.style.display = 'block';
-            buttonYes.style.display = 'block';
-        }
-
-        function handleYes() {
-            window.location.href = 'startGame.html';
+           // window.location.href = './EvaluationGame/web/gameEmbedding.html';
+           window.location.href = 'BadEval.html';
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
-        buttonGoodWorking.addEventListener('click', handleGoodEvaluation);
-        buttonYes.addEventListener('click', handleYes);
+
        
         </script>
 
