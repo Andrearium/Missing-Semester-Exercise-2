@@ -50,27 +50,9 @@ h2 {
     border: 3px solid black;
 }
 
-.btn-good2 {
-    display: none;
-    position: absolute;
-    left: 50%; /* half of window */
-    transform: translateX(-50%);
-    background-color: forestgreen;
-    color: white;
-    border: 3px solid white;
-    padding: 10px 20px;
-    font-size: 30px;
-    border-radius: 10px;
-    position: relative;
-    font-weight: bold;
-    margin-top: 2vw;
-}
-
 .popup {
     display: none;
     position: absolute;
-   /* margin-top: 80px;
-    top: 50%; */
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -88,3 +70,39 @@ h2 {
     top: 320px;
     height: auto;
 }
+
+.btn-good2 {
+    display: none;
+    position: absolute;
+    left: 50%; /* half of window */
+    transform: translateX(-50%);
+    background-color: forestgreen;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 20px;
+    font-size: 30px;
+    border-radius: 10px;
+    position: relative;
+    font-weight: bold;
+    margin-top: 2vw;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: white;
+        border: 3px solid white;
+        background-color: forestgreen;
+    }
+    50% {
+        color: yellow;
+        border: 3px solid yellow;
+        background-color: mediumseagreen;
+    }
+    100% {
+        color: white;
+        border: 3px solid white;
+        background-color: forestgreen;
+    }
+}
+
