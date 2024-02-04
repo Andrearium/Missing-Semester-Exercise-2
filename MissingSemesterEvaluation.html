@@ -14,8 +14,14 @@
     </div>
 
         <button id="buttonGood" class="btn-good">good evaluation</button>
-        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
         <button id="buttonBad" class="btn-bad">bad evaluation</button>
+
+    <div class="container">
+            <p class="left-text"></p>
+          <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
+          <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
+          <p id="textClickMeRight" class="right-text">&larr; Click me</p>
+    </div>
 
     <!-- Popup -->
     <div class="popup" id="popUp">
@@ -26,9 +32,11 @@
     <!-- Random button position calculation -->
     <script>
         const buttonGood = document.getElementById('buttonGood');
-        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
         const buttonBad = document.getElementById('buttonBad');
         const popUp = document.getElementById('popUp');
+        const buttonGoodWorking = document.getElementById('buttonGoodWorking')
+        const textClickMeLeft = document.getElementById('textClickMeLeft')
+        const textClickMeRight = document.getElementById('textClickMeRight')
         var jumpingEnabled = true;
 
         // Function to generate random position
@@ -60,6 +68,15 @@
             buttonGood.style.display = 'none';
             buttonBad.style.display = 'none';
             buttonGoodWorking.style.display = 'block';
+            textClickMeLeft.style.display = 'block';
+            textClickMeRight.style.display = 'block';
+        }
+
+        function handleGoodEvaluation() {
+            popUp.style.display = 'none';
+            
+
+
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
