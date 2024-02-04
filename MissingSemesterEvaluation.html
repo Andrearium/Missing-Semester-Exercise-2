@@ -24,7 +24,7 @@
 
     <div class="container2">
         <p id="textLikedMissingSemester" class="liked-text">So you liked Missing Semester?</p>
-        <button id="buttonYes" class="btn-yes">Yes!</button>
+        <button id="buttonYes" class="btn-yes1">Yes!</button>
     </div>
 
     <!-- Popup -->
@@ -32,12 +32,6 @@
         <img src="meme.jpg" alt="PopupImage">
     </div>
 
-    <div class="newBackground">
-
-    </div>
-
-
-    <!-- Random button position calculation -->
     <script>
         const buttonGood = document.getElementById('buttonGood');
         const buttonBad = document.getElementById('buttonBad');
@@ -93,8 +87,13 @@
             buttonYes.style.display = 'block';
         }
 
+        function handleYes() {
+            window.location.href = 'startGame.html';
+        }
+
         buttonBad.addEventListener('click', handleBadEvaluation);
         buttonGoodWorking.addEventListener('click', handleGoodEvaluation);
+        buttonYes.addEventListener('click', handleYes);
        
         </script>
 
