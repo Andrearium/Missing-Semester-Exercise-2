@@ -17,15 +17,23 @@
         <button id="buttonBad" class="btn-bad">bad evaluation</button>
 
     <div class="container">
-            <p class="left-text"></p>
-          <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
-          <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
-          <p id="textClickMeRight" class="right-text">&larr; Click me</p>
+        <p id="textClickMeLeft" class="left-text">Click me &rarr;</p>
+        <button id="buttonGoodWorking" class="btn-good2">good evaluation</button>
+        <p id="textClickMeRight" class="right-text">&larr; Click me</p>
+    </div>
+
+    <div class="container2">
+        <p id="textLikedMissingSemester" class="liked-text">So you liked Missing Semester?</p>
+        <button id="buttonYes" class="btn-yes">Yes!</button>
     </div>
 
     <!-- Popup -->
     <div class="popup" id="popUp">
         <img src="meme.jpg" alt="PopupImage">
+    </div>
+
+    <div class="newBackground">
+
     </div>
 
 
@@ -37,6 +45,8 @@
         const buttonGoodWorking = document.getElementById('buttonGoodWorking')
         const textClickMeLeft = document.getElementById('textClickMeLeft')
         const textClickMeRight = document.getElementById('textClickMeRight')
+        const textLikedMissingSemester = document.getElementById('textLikedMissingSemester')
+        const buttonYes = document.getElementById('buttonYes')
         var jumpingEnabled = true;
 
         // Function to generate random position
@@ -74,9 +84,13 @@
 
         function handleGoodEvaluation() {
             popUp.style.display = 'none';
-            
-
-
+            document.body.style.backgroundImage = "url('background2.jpeg')";
+            document.body.style.backgroundPositionY = '15%'; // offset to center frog
+            buttonGoodWorking.style.display = 'none';
+            textClickMeLeft.style.display = 'none';
+            textClickMeRight.style.display = 'none';
+            textLikedMissingSemester.style.display = 'block';
+            buttonYes.style.display = 'block';
         }
 
         buttonBad.addEventListener('click', handleBadEvaluation);
