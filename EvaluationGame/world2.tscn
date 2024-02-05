@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://world.gd" id="1_ok4da"]
 [ext_resource type="PackedScene" uid="uid://kuha1su654ws" path="res://player.tscn" id="2_sb1xo"]
-[ext_resource type="PackedScene" uid="uid://b8fqn6nrpg0aq" path="res://world3.tscn" id="2_uy3af"]
+[ext_resource type="PackedScene" uid="uid://wguqtk3kntv4" path="res://world4.tscn" id="2_xj08v"]
 [ext_resource type="Texture2D" uid="uid://dxwfbptn83ej7" path="res://monochrome_tilemap_transparent_packed.png" id="3_4btkj"]
 [ext_resource type="PackedScene" uid="uid://dbaaeeobwugyq" path="res://text.tscn" id="4_e3hpp"]
 
@@ -1210,7 +1210,7 @@ size = Vector2(14, 14)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ok4da")
-next_level = ExtResource("2_uy3af")
+next_level = ExtResource("2_xj08v")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, 5)
