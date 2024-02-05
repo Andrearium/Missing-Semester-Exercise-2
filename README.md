@@ -1,7 +1,6 @@
-<a name="top"></a>
 # Missing Semester Evaluation 
 ## Missing-Semester-Exercise-2 project from Manuel Hochreiter and Andrea Zoitl
-
+<a name="top"></a>
 - [Introduction](#intro)
 - [Are you curious?](#start)
 - [What happens at this page?](#keepScrolling)
