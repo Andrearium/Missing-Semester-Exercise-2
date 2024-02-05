@@ -5,5 +5,45 @@ At first we only thought about programming a Bad UI. But of course we also had t
 
 Are you curious? Start with MissingSemesterEvaluation.html.
 
+-
+-
+-
+-
+-
+-
+-
+-
+-
+- keep going
+-
+-
+-
+-
+-
+-
+-
+-
+-
+- keep going
+-
+-
+-
+-
+-
+-
+-
+-
+-
+- keep going
+-
+-
+-
+-
+-
+-
+-
+-
+-
+- keep going
 If you're not a fan of surprises and want to know what to expect, you'll have to scroll down. Otherwise the surprise would be spoiled for the others.
 
