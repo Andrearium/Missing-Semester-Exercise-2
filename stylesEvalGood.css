@@ -53,37 +53,18 @@ h2 {
     align-items: center;
 }
 
-.game-text1, .game-text2 {
+.game-text{
     grid-row: 1;
     grid-column: 2;
     color: darkgreen;
     margin: 10px;
     font-size: 30px;
     font-weight: bold;
-
+    background-color: rgba(144, 238, 144, 0.9);
 }
 
-.game-text1 {
-    grid-row: 1;
-    grid-column: 2;
-}
 
-.game-text2 {
-    grid-row: 3;
-    grid-column: 2;
-}
 
-.btn-start {
-    grid-row: 4;
-    grid-column: 2;
-    background-color: rgba(255, 255, 255, 0.7); /* white with 70% transparancy */
-    color: black;
-    border: 3px solid green;
-    font-size: 30px;
-    border-radius: 15px;
-    position: relative;
-    font-weight: bold;
-}
 
 
 

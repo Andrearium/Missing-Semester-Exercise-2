@@ -13,14 +13,14 @@ h1, h2, p, .btn-bad, .btn-good, .btn-good2, .btn-yes, .btn-yes1 {
 }
 
 h1 {
-    color: black;
+    color: crimson;
     font-weight: bold;
     font-size: 45px;
     margin-bottom: 1vw; /* distance in percent of window width */
 }
 
 h2 {
-    color: black;
+    color: darkgreen;
     font-weight: bold;
     font-size: 35px;
     margin-bottom: 1vw;
@@ -51,7 +51,7 @@ h2 {
 .btn-bad {
     position: absolute;
     left: 50%; /* half of window */
-    transform: translateX(+10%);
+    transform: translateX(+15%);
     background-color: crimson;
     color: black;
     border: 3px solid black;

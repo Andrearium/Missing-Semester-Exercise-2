@@ -49,7 +49,7 @@ h2 {
 .btn-bad {
     position: absolute;
     left: 50%; /* half of window */
-    transform: translateX(+10%);
+    transform: translateX(+15%);
     background-color: crimson;
     color: black;
     border: 3px solid black;
