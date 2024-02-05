@@ -1,8 +1,16 @@
 # Missing Semester Evaluation
-## Missing-Semester-Exercise-2 project from Manuel Hochreiter and Andrea Zoitl
+## Missing-Semester-Exercise-2 project from Manuel Hochreiter and Andrea Zoitl]
 
+- [Introduction](#intro)
+- [Start with MissingSemesterEvaluation.html](#start)
+- [What happens at this page?](#start)
+- [Tools we used](#tools)
+
+<a name="intro"></a>
+### Introduction
 At first we only thought about programming a Bad UI. But of course we also had to come up with a theme, otherwise it's only half as much fun. So why not evaluate the course?
 
+<a name="start"></a>
 ### Are you curious? Start with MissingSemesterEvaluation.html. <br> We recommend using Google Chrome, as I sometimes had display errors with Firefox 
 
 If you're not a fan of surprises and want to know what to expect, you'll have to scroll down. Otherwise the surprise would be spoiled for the others
@@ -77,6 +85,7 @@ Time to rethink your decision. Did you like Missing Semester?
 Well, there you go! Good decision and the frog is happy too! Well done!
 ![Game1](./img/14.png)
 
+<a name="tools"></a>
 ## Tooles we used
 Not only did we learn about html, css and javascript, we also had fun creating the page and game. <br>
 All images, except for the meme, were created with [Microsoft Bing Image Creator supported by DALL-E 3](https://www.bing.com/images/create). <br>
