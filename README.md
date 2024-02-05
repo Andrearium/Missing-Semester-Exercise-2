@@ -14,8 +14,8 @@ The result is a UI that is not bad at all, some of the buttons are perhaps a bit
 
 <a name="start"></a>
 ## Are you curious? 
-**Start with MissingSemesterEvaluation.html**. 
-We recommend using Google Chrome, as I sometimes had display errors with Firefox 
+**Start with MissingSemesterEvaluation.html**. <br>
+**!!! Important:** We recommend unsing Google Chrome, as we sometimes had display errors with Firefox **!!!**
 
 <a name="keepScrolling"></a>
 If you're not a fan of surprises and want to know what to expect, you'll have to scroll down. Otherwise the surprise would be spoiled for the others.
