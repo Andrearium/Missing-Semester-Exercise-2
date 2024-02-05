@@ -27,7 +27,7 @@ h2 {
 }
 
 .text-box {
-    background-color: rgba(255, 255, 255, 0.7); /* white with 70% transparancy */
+    background-color: rgba(255, 255, 224, 0.8); /* transparent box */ 
     padding: 20px;
 }
 

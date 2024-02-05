@@ -7,7 +7,7 @@ body {
     background-repeat: repeat;
 }
 
-h1, h2, p, .btn-bad, .btn-good, .btn-good2, .btn-yes, .btn-yes1 {
+h1, h2, p {
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -48,8 +48,8 @@ h2 {
 
 .container {
     display: grid;
-    grid-template-columns: auto 600px auto;
-    grid-template-rows: auto auto auto auto; /* 1fr takes all the space left */
+    grid-template-columns: auto 620px auto;
+    grid-template-rows: auto auto auto auto;
     align-items: center;
 }
 
@@ -60,7 +60,7 @@ h2 {
     margin: 10px;
     font-size: 30px;
     font-weight: bold;
-    background-color: rgba(144, 238, 144, 0.9);
+    background-color: rgba(152, 251, 152, 0.9);
 }
 
 
