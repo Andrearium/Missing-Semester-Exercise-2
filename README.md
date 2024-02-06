@@ -1,6 +1,6 @@
 <a name="top"></a>
 # Missing Semester Evaluation 
-## Missing-Semester-Exercise-2 project from Manuel Hochreiter and Andrea Zoitl
+## Missing-Semester-Exercise-2 project from <br> Manuel Hochreiter and Andrea Zoitl
 
 - [Introduction](#intro)
 - [Are you curious?](#start)
