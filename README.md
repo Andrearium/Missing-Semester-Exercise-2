@@ -99,6 +99,7 @@ Well, there you go! Good decision and the frog is happy too! Well done!
 ## Tooles we used
 Not only did we learn about html, css and javascript, we also had fun creating the page and game. <br>
 All images, except for the meme, were created with [Microsoft Bing Image Creator supported by DALL-E 3](https://www.bing.com/images/create). <br>
+The game was made from scratch using the [Godot game engine](https://godotengine.org/) and assets by [Kenney](https://www.kenney.nl/). <br>
 The meme was created with this [Meme Generator](https://imgflip.com/memegenerator). <br>
 The Game is hosted at [itch.io](https://itch.io/). <br>
 You can play it anytime without clicking through the pages at [v-oi-d: Evaluation Game](https://v-oi-d.itch.io/evaluation-game).
