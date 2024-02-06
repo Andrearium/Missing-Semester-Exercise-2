@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Semester Evaluation</title>
+    <link rel="stylesheet" type="text/css" href="stylesGame.css">
+
+</head>
+
+<body>
+    <div class="container">  
+        <img src="frog1.png" alt="frog">
+        <button id="buttonReplay" class="btn-replay">&#10227;</button>
+        <button id="buttonNext" class="btn-next">&#10145;</button>
+        <img src="frog1.png" alt="frog">
+    </div>
+
+
+    <iframe 
+        id ="gameFrame"
+        sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+        src="EvaluationGame/web/gameEmbedding.html" 
+        width="80%"
+        height="800px"
+        border="1px solid black"
+        name="SELFHTML_in_a_box">
+        <p>Unfortunately, your browser cannot display embedded frames: You can call up the embedded page via the following link: 
+        <a href="https://v-oi-d.itch.io/evaluation-game">Evaluation Game</a>
+        </p>
+    </iframe>>
+
+    <script>
+        const buttonReplay = document.getElementById('buttonReplay');
+        const buttonNext = document.getElementById('buttonNext');
+
+        buttonReplay.addEventListener('click', function() {
+            window.location.href = "Game.html";
+        });
+
+        buttonNext.addEventListener('click', function() {
+            window.location.href = "BadEval.html";
+        });
+
+    </script>
+
+
+</body>
+
+</html>
