@@ -160,6 +160,13 @@ h2 {
     margin-top: 1vw;
 }
 
+.btn-yes:hover {
+    background-color: greenyellow;
+    color: darkgreen;
+    border-color: green;
+}
+
+
 @keyframes blink {
     0% {
         color: white;

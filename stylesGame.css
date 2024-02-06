@@ -33,7 +33,7 @@ p {
     justify-content: center;
 }
 
-.btn-next, .btn-replay {
+.btn-replay, .btn-next {
     border-radius: 50%; /* to get a round button */
     text-align: center;
     font-size: 25px;
@@ -52,4 +52,16 @@ p {
     grid-column: 4;
     background-color: violet;
     color:white;
+}
+
+.btn-replay:hover {
+    background-color: blue;
+    color: white;
+    border-color: royalblue;
+}
+
+.btn-next:hover {
+    background-color: magenta;
+    color: white;
+    border-color: purple;
 }
