@@ -1,0 +1,71 @@
+body {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #01ccf7;
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+p {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: darkred;
+}
+
+.frog {
+    display: flex;
+}
+
+.frog img { 
+    grid-column: 1 , 5;
+    max-width: 50%;
+    max-height: 50%;
+    vertical-align: middle;
+    align-items: center;
+}  
+
+.container {
+    display: grid;
+    grid-template-columns: auto 100px 50px 100px auto;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-replay, .btn-next {
+    border-radius: 50%; /* to get a round button */
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 2px;
+    display: inline-block;
+}
+
+.btn-replay {
+    grid-column: 2;
+    background-color: slategrey;
+    color: white;
+}
+
+.btn-next {
+    grid-column: 4;
+    background-color: violet;
+    color:white;
+}
+
+.btn-replay:hover {
+    background-color: blue;
+    color: white;
+    border-color: royalblue;
+}
+
+.btn-next:hover {
+    background-color: magenta;
+    color: white;
+    border-color: purple;
+}
+
+span {
+    vertical-align: text-bottom;
+}

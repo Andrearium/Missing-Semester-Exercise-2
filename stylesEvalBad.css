@@ -44,17 +44,17 @@ h2 {
     position: absolute;
     left: 50%; /* half of window */
     transform: translateX(-110%);
-    background-color: forestgreen;
-    color: white;
-    border: 3px solid white;
+    background-color: white;
+    color: green;
+    border: 3px solid forestgreen;
 }
 .btn-bad {
     position: absolute;
     left: 50%; /* half of window */
     transform: translateX(+15%);
-    background-color: crimson;
-    color: black;
-    border: 3px solid black;
+    background-color: black;
+    color: red;
+    border: 3px solid crimson;
 }
 
 .popup {
@@ -159,6 +159,13 @@ h2 {
     padding: 15px;
     margin-top: 1vw;
 }
+
+.btn-yes:hover {
+    background-color: greenyellow;
+    color: darkgreen;
+    border-color: green;
+}
+
 
 @keyframes blink {
     0% {
