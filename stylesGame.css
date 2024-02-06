@@ -65,3 +65,7 @@ p {
     color: white;
     border-color: purple;
 }
+
+span {
+    vertical-align: text-bottom;
+}
