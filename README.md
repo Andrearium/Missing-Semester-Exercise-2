@@ -104,5 +104,5 @@ The meme was created with this [Meme Generator](https://imgflip.com/memegenerato
 The Game is hosted at [itch.io](https://itch.io/). <br>
 You can play it anytime without clicking through the pages at [v-oi-d: Evaluation Game](https://v-oi-d.itch.io/evaluation-game). <br>
 We have written a shell script to upload the files to Missing Maschine. See folder deploy :-) Here's the proof that it worked: <br>
-![ShellScript](./img/15.png){width=50%} <br>
+<img src="./img/15.png" alt="image" width="50%" height="auto"> <br>
 [back to top](#top)
